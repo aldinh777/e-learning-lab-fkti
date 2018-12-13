@@ -1,0 +1,8 @@
+node_modules
+
+public/files/apps/*
+!public/files/apps/.gitkeep
+
+source/*
+!source/.gitkeep
+

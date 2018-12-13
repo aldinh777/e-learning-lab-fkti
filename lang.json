@@ -1,0 +1,24 @@
+{
+	"java": {
+		"file": "Main.java",
+		"compile": "javac <<@dirname>>/Main.java",
+		"run": "java Main"
+	},
+	"c++": {
+		"file": "main.cpp",
+		"compile": "g++ <<@dirname>>/main.cpp -o <<@dirname>>/main",
+		"run": "./main"
+	},
+	"python": {
+		"file": "main.py",
+		"run": "python3 main.py"
+	},
+	"ruby": {
+		"file": "main.rb",
+		"run": "ruby main.rb"
+	},
+	"javascript": {
+		"file": "main.js",
+		"run": "node main.js"
+	}
+}

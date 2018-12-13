@@ -1,0 +1,66 @@
+{
+	"postest1": {
+		"a": {
+			"kelompok1": "B+",
+			"kelompok2": "A",
+			"kelompok3": "B",
+			"kelompok4": "B+",
+			"kelompok5": "B+",
+			"kelompok6": "B+",
+			"kelompok7": "B",
+			"kelompok8": "B+",
+			"kelompok9": "B+",
+			"kelompok10": "B+",
+			"kelompok11": "B+",
+			"kelompok12": "A",
+			"kelompok14": "B"
+		},
+		"b": {
+			"kelompok1": "B+",
+			"kelompok2": "A",
+			"kelompok3": "B+",
+			"kelompok4": "B+",
+			"kelompok5": "B+",
+			"kelompok6": "B+",
+			"kelompok7": "B+",
+			"kelompok8": "B+",
+			"kelompok9": "B",
+			"kelompok10": "B+",
+			"kelompok11": "E",
+			"kelompok12": "B",
+			"kelompok14": "B",
+			"kelompok15": "B+"
+		},
+		"c": {
+			"kelompok1": "B+",
+			"kelompok2": "B+",
+			"kelompok3": "B+",
+			"kelompok4": "B",
+			"kelompok5": "B+",
+			"kelompok6": "B",
+			"kelompok7": "B",
+			"kelompok8": "B+",
+			"kelompok9": "B",
+			"kelompok10": "B+",
+			"kelompok11": "B+",
+			"kelompok12": "E",
+			"kelompok14": "B+"
+		},
+		"d": {
+			"kelompok1": "B+",
+			"kelompok2": "B",
+			"kelompok3": "B+",
+			"kelompok4": "A",
+			"kelompok5": "B",
+			"kelompok6": "B+",
+			"kelompok7": "B",
+			"kelompok8": "B+",
+			"kelompok9": "B",
+			"kelompok10": "B+",
+			"kelompok11": "C",
+			"kelompok12": "B+",
+			"kelompok14": "E",
+			"kelompok15": "C"
+		}
+	}
+}
