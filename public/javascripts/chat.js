@@ -1,4 +1,7 @@
+const socket = io('/chat');
+
 !function() {
+
 	function loggedIn() {
 		document.getElementById('username-label').style.display = 'none';
 		usernameInput.value = '';
@@ -23,25 +26,18 @@
 			alert("Please Input Username");
 			return;
 		}
-		let xhr = new XMLHttpRequest();
-		xhr.open('GET', '/api/chat/login?username='+usernameInput.value);
-		xhr.onreadystatechange = ()=> {
-			if (xhr.readyState == xhr.DONE) {
-				sessionUsername.value = usernameInput.value;
-				loggedIn();
-			}
-		}
-		xhr.send(null);
+
+		const id = sessionId.value;
+		const username = usernameInput.value;
+
+		socket.emit('login', id, username);
+		sessionUsername.value = username;
+		loggedIn();
 	}
+	
 	tombolLogout.onclick = function(ev) {
-		let xhr = new XMLHttpRequest();
-		xhr.open('GET', '/api/chat/logout');
-		xhr.onreadystatechange = ()=> {
-			if (xhr.readyState == xhr.DONE) {
-				window.location = '/';
-			}
-		}
-		xhr.send(null);
+		socket.emit('logout');
+		window.location = '/';
 	}
 
 	chatText.onkeydown = function(ev) {
@@ -49,30 +45,21 @@
 			chatKirim.click();
 		}
 	}
+
 	chatKirim.onclick = function(ev) {
 		if (!chatText.value) {
 			alert('Text belum diisi');
 		}
-		let xhr = new XMLHttpRequest();
-		xhr.open('POST', '/api/chat/kirim');
-		xhr.onreadystatechange = ()=> {
-			if (xhr.readyState == xhr.DONE) {
-				chatText.value = '';
-			}
-		}
-		xhr.setRequestHeader('Content-Type', 'application/json');
-		xhr.send(JSON.stringify({
-			id: sessionId.value,
-			username: sessionUsername.value,
-			message: chatText.value
-		}));
-	}
-	if (sessionUsername.value) {
-		loggedIn();
+
+		const pesan = chatText.value;
+		
+		socket.emit('kirim', pesan);
+		chatText.value = '';
 	}
 }()
 
 !function() {
+
 	function parseChat(response) {
 		let sessionId = document.getElementById('session-id');
 		let chatBody = document.getElementById('chat-body');
@@ -103,26 +90,12 @@
 		}
 		chatBody.scrollTop = chatBody.scrollHeight;
 	}
-	function fetchMessage() {
-		fetch('/api/chat/fetch').then((value)=> {
-			value.json().then((value)=> {
-				parseChat(value);
-				fetchMessage();
-			}).catch((reason)=> {
-				console.log(reason);
-			});
-		}).catch((reason)=> {
-			console.log(reason);
-		});
-	}
-	fetch('/api/chat/get').then((value)=> {
-		value.json().then((value)=> {
-			parseChat(value);
-			fetchMessage();
-		}).catch((reason)=> {
-			console.log(reason);
-		});
-	}).catch((reason)=> {
-		console.log(reason);
+
+	socket.on('message', (db) => {
+		parseChat(db);
+	});
+
+	socket.on('init', (db) => {
+		parseChat(db);
 	});
 }()

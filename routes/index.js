@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
 	res.render('index', {
 		title: 'Praktikum Toolkit',
 		username: req.session.username,
-		id: req.sessionID
+		id: req.sessionID,
 	});
 });
 
