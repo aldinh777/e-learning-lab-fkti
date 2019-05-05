@@ -7,17 +7,17 @@
 	"c++": {
 		"file": "main.cpp",
 		"compile": "g++ <<@dirname>>/main.cpp -o <<@dirname>>/main",
-		"run": "./main"
+		"run": "main"
 	},
 	"python": {
 		"file": "main.py",
-		"run": "python3 main.py"
+		"run": "python main.py"
 	},
 	"ruby": {
 		"file": "main.rb",
 		"run": "ruby main.rb"
 	},
-	"javascript": {
+	"node.js": {
 		"file": "main.js",
 		"run": "node main.js"
 	}

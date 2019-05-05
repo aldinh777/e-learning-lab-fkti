@@ -1,0 +1,18 @@
+article#chat
+  h1 Chatting
+  input#session-username(type="hidden", value=username)
+  input#session-id(type="hidden", value=id)
+  table.chat
+    tr
+      td(rowspan="2", style="width: 20%;")
+        h3#username-label Masukkan Nama :
+        input#username-login(type="text")
+        button.tombol#tombol-login Login
+        button.tombol#tombol-logout(style="display: none;") Logout
+      td(colspan="2", style="height: 400px;")
+        div#chat-body
+    tr
+      td(style="width: 55%;")
+        textarea#chat-text(name="hello", rows="3", style="width: 99%;", disabled)
+      td
+        button#chat-kirim(disabled) Kirim

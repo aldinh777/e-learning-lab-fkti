@@ -11,7 +11,7 @@ router.post('/coding/:bahasa', function(req, res, next) {
 	let used = req.params.bahasa;
 	let dir = 'source/'+Math.random();
 	fs.mkdir(dir, (err)=> {
-		if (err) console.log(err);
+	if (err) console.log(err);
 		fs.writeFile(dir+'/'+lang[used].file, req.body.code, (err)=> {
 			if (err) console.log(err);
 			if (lang[used].compile) {
@@ -20,7 +20,7 @@ router.post('/coding/:bahasa', function(req, res, next) {
 					if (stderr) {
 						return res.end(stderr);
 					}
-					cp.exec('cd '+dir+';'+lang[used].run, (err, stdout, stderr)=> {
+					cp.exec('cd '+dir+' && '+lang[used].run, (err, stdout, stderr)=> {
 						if (err) console.log(err);
 						if (stdout) {
 							res.end(stdout);
@@ -32,7 +32,7 @@ router.post('/coding/:bahasa', function(req, res, next) {
 					});
 				});				
 			} else {
-				cp.exec('cd '+dir+';'+lang[used].run, (err, stdout, stderr)=> {
+				cp.exec('cd '+dir+' && '+lang[used].run, (err, stdout, stderr)=> {
 					if (err) console.log(err);
 					if (stdout) {
 						res.end(stdout);
