@@ -1,10 +1,11 @@
 const debug = require('debug')('fragticquewm:chat');
 const fileHandler = require('../helpers/file');
 
-function chatRealtime(socket, chat) {
+const chatFile = 'chat.json';
 
+
+function chatRealtime(socket, chat) {
   debug('Terkoneksi dengan Chat');
-  const chatFile = 'chat.json';
   const user = {
     id: '',
     name: 'anonymous',
@@ -29,8 +30,8 @@ function chatRealtime(socket, chat) {
           message: pesan,
         });
         fileHandler.writeJSON(chatFile, db);
-        socket.emit('message', db);
         socket.broadcast.emit('message', db);
+        socket.emit('message', db);
         debug('Pesan Terkirim');
       })
   });

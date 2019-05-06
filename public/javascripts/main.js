@@ -29,5 +29,5 @@ function filter(className) {
 	}
 }
 
-show('download');
+show('submission');
 filter('semua');

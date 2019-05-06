@@ -4,7 +4,6 @@ const sysHelper = require('../helpers/system');
 const langConfig = require('../lang.json');
 
 function codingRealtime(socket) {
-
   debug('Terhubung ke Koding');
   socket.on('bahasa', (bahasa, code) => {
     debug('Kodingan Berhasil Terkirim');

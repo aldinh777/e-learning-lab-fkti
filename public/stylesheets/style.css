@@ -230,3 +230,47 @@ table.chat {
 	margin-top: 10px;
 	text-align: left;
 }
+
+#submission-title {
+	width: 50%;
+	padding: 5px;
+}
+#submission-button {
+	border: 5px lavender outset;
+	width: 40%;
+	padding: 5px;
+	margin: 1px;
+	background: lightblue;
+}
+#submission-button:hover {
+	background: lightseagreen;
+	border: 5px lightblue outset;
+}
+#submission-button:active {
+	border-style: inset;
+}
+#submission-add {
+	padding: 20px;
+	background: mediumpurple;
+}
+#submission-list {
+	padding: 5px;
+	background: mediumaquamarine;
+}
+.submission-item {
+	border: black solid 1px;
+	border-radius: 10px;
+	margin: 10px;
+	padding: 10px;
+	background: yellowgreen;
+}
+.submission-submit {
+	border: 5px lavender outset;
+	width: 40%;
+	padding: 5px;
+	margin: 1px;
+	background: lightblue;
+}
+.submission-submit:active {
+	border-style: inset;
+}

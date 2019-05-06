@@ -1,12 +1,18 @@
 article#submission
   h1 Submission
-  div.tambah-tugas
+  #submission-add
     h3 Tambah Tugas
-    textarea#tambah-tugas(name="tugas", rows="5")
-    button Tambah
-  div.list-tugas
-    
-    h4 Tugas 1
-    p deskripsi
-    textarea#submit(name="kirim-tugas", rows="5")
-    button kirim
+    input#submission-title(type="text", placeholder="Judul")
+    textarea#submission-text(name="tugas", rows="5", placeholder="Deskripsi")
+    button#submission-button Tambah
+  #submission-list
+    .submission-item
+      h4 Tugas 1
+      p Deskripsi
+      textarea(rows="5")
+      button.submission-submit Kirim Jawaban
+    .submission-item
+      h4 Tugas 2
+      p Deskripsi
+      textarea(rows="5", disabled="disabled")
+      button.submission-submit(disabled="disabled") Jawaban Terkirim

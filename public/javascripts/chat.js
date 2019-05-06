@@ -64,7 +64,7 @@ const socket = io('/chat');
 		let sessionId = document.getElementById('session-id');
 		let chatBody = document.getElementById('chat-body');
 		while(chatBody.lastChild) {
-			chatBody.removeChild( chatBody.lastChild );
+			chatBody.removeChild(chatBody.lastChild);
 		}
 		let htmlParsed = response.map((msg)=> {
 			let chatBox = document.createElement('div');
@@ -78,16 +78,13 @@ const socket = io('/chat');
 			let chatContent = document.createElement('div');
 			let name = document.createElement('h3');
 			let text = document.createElement('p');
-			name.appendChild( document.createTextNode(msg.username) );
-			text.appendChild( document.createTextNode(msg.message) );
-			chatContent.appendChild(name);
-			chatContent.appendChild(text);
-			chatBox.appendChild(chatContent);
+			name.append(msg.username);
+			text.append(msg.message);
+			chatContent.append(name, text);
+			chatBox.append(chatContent);
 			return chatBox;
 		});
-		for(let element of htmlParsed) {
-			chatBody.appendChild(element);
-		}
+		chatBody.append(...htmlParsed);
 		chatBody.scrollTop = chatBody.scrollHeight;
 	}
 

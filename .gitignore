@@ -1,5 +1,6 @@
 node_modules
 chat.json
+submission.json
 
 public/files/apps/*
 !public/files/apps/.gitkeep
